@@ -1,0 +1,51 @@
+<% include header %>
+
+<div class="cat-nav nav">
+  <div class="nav-title">
+    <h3>Categorieën:</h3>
+  </div>
+  <div class="filters">
+    <% for (var i = 0; i < categorieen.length; i++) { %>
+      <a href="/categorieen/<%- i %>"><%- categorieen[i] %></a>
+    <% } %>
+  </div>
+</div>
+
+<div class="aut-nav nav">
+  <div class="nav-title">
+    <h3>Auteurs:</h3>
+  </div>
+  <div class="filters">
+    <% for (var i = 0; i < auteurs.length; i++) { %>
+      <a href="/auteurs/<%- i %>"><%- auteurs[i] %></a>
+    <% } %>
+  </div>
+</div>
+
+
+  <% var teller = 1; %>
+  <% nieuws.forEach(function(item){ %>
+    <section>
+
+        <img src="<%- item.afbeeldings %>" class="featured-image"alt="<%- item.titel %>">
+
+        <div class="wrap">
+          <h2>
+            <a href=/items/<%- item.id %>><%- item.titel %></a>
+          </h2>
+
+          <p>
+            <%- item.samenvatting %>
+          </p>
+
+          <div class="data">
+            <p><%- item.datum %></p>
+            <p>Auteur: <%- item.auteurs %></p>
+          </div>
+          <hr></hr>
+        </div>
+    </section>
+    <% teller++;}); %>
+
+
+<% include footer %>
